@@ -1,0 +1,190 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html, body {
+  height: 100%;
+  font-size: 16px;
+}
+
+/* Smooth Scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Main Body Styling */
+body {
+  background-color: #121212; /* Dark Slate Background */
+  color: #F5F5F5; /* Light Gray Text */
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Header Styling */
+header {
+  background-color: #1E1E1E; /* Dark Gray */
+  padding: 20px 0;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+header nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+header nav ul li {
+  font-size: 1.2rem;
+}
+
+header nav ul li a {
+  text-decoration: none;
+  color: #F5F5F5;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+  color: #2ECC71; /* Green */
+}
+
+/* Hero Section */
+.hero {
+  padding: 100px 20px;
+  background: linear-gradient(135deg, #2ECC71, #1E1E1E);
+  color: #F5F5F5;
+  text-align: center;
+  /* Removed animation from the hero section */
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  color: #F39C12; /* Golden Yellow */
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  opacity: 0.8;
+}
+
+.hero .cta-button {
+  background-color: #2ECC71;
+  padding: 15px 40px;
+  color: #fff;
+  font-size: 1.1rem;
+  text-decoration: none;
+  border-radius: 25px;
+  box-shadow: 0 5px 15px rgba(46, 204, 113, 0.2);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  position: relative;
+  top: 40px; /* Moves the button 40px down */
+}
+
+
+.hero .cta-button:hover {
+  background-color: #27AE60;
+  transform: scale(1.05);
+}
+
+/* Team Section */
+.team {
+  padding: 50px 20px;
+  background-color: #1a242f;
+  color: white;
+  text-align: center;
+}
+
+.team h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+}
+
+.team-members {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.team-member {
+  background-color: #34495e;
+  padding: 20px;
+  border-radius: 8px;
+  width: 250px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-member:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+.team-member img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.team-member h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.team-member p {
+  font-size: 1.1rem;
+}
+
+/* Footer Styling */
+footer {
+  background-color: #1E1E1E; /* Dark Gray */
+  padding: 20px 0;
+  text-align: center;
+  color: #BDC3C7;
+}
+
+footer p {
+  font-size: 1rem;
+  opacity: 0.8;
+}
+
+footer a {
+  color: #F39C12;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #D35400;
+}
+
+/* Section Hover Effect */
+section:hover {
+  transform: scale(1.03);
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
