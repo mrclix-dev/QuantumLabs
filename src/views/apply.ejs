@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apply for <%= application.name %></title>
+  <link rel="stylesheet" href="/assets/css/apply.css">
+</head>
+<body>
+
+  <div class="application-form-container">
+    <h1>Apply for <%= application.name %></h1>
+    <p class="description"><%= application.description %></p>
+
+    <form action="/applications/<%= application._id %>/apply" method="POST">
+      
+      <!-- Applicant Name -->
+      <div class="form-field">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+
+      <!-- Loop through the application questions -->
+      <% application.questions.forEach(function(question, index) { %>
+        <div class="question-container">
+          <h2><%= question.question %></h2>
+
+          <!-- Handle Different Question Types -->
+          
+          <!-- Short Answer -->
+          <% if (question.type === 'short') { %>
+            <div class="form-field">
+              <textarea name="responses[<%= index %>]" placeholder="Your answer here..." required></textarea>
+            </div>
+          <% } %>
+
+          <!-- Paragraph Answer -->
+          <% if (question.type === 'paragraph') { %>
+            <div class="form-field">
+              <textarea name="responses[<%= index %>]" placeholder="Provide a detailed response..." required></textarea>
+            </div>
+          <% } %>
+
+          <!-- Single-Choice Question -->
+          <% if (question.type === 'single-choice') { %>
+            <div class="form-field">
+              <% question.options.forEach(function(option) { %>
+                <label>
+                  <input type="radio" name="responses[<%= index %>]" value="<%= option %>" required> <%= option %>
+                </label><br>
+              <% }); %>
+            </div>
+          <% } %>
+
+          <!-- Multiple-Choice Question -->
+          <% if (question.type === 'multiple-choice') { %>
+            <div class="form-field">
+              <% question.options.forEach(function(option) { %>
+                <label>
+                  <input type="checkbox" name="responses[<%= index %>][<%= option %>]" value="<%= option %>"> <%= option %>
+                </label><br>
+              <% }); %>
+            </div>
+          <% } %>
+
+        </div>
+      <% }); %>
+
+      <div class="form-field">
+        <button type="submit" class="submit-button">Submit Application</button>
+      </div>
+    </form>
+
+    <% if (successMessage) { %>
+      <p class="success-message"><%= successMessage %></p>
+    <% } %>
+
+  </div>
+
+</body>
+</html>

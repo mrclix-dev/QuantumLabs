@@ -1,0 +1,151 @@
+/* General Page Styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+body {
+  background-color: #121212; /* Dark background */
+  color: #E0E0E0; /* Light text color for contrast */
+  font-size: 16px;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Utility classes */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Heading Styles */
+h1, h2, h3 {
+  font-weight: bold;
+  color: #F39C12; /* Accent color */
+}
+
+/* Section Styling */
+section {
+  padding: 80px 0;
+  text-align: center;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(135deg, #1F2937, #2D3B46);
+  color: #fff;
+  padding: 100px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  animation: fadeInUp 1s ease-out;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: #A3B3C2;
+  margin-bottom: 30px;
+  opacity: 0.8;
+  animation: fadeInUp 1.2s ease-out;
+}
+
+.hero .cta-button {
+  background-color: #F39C12;
+  color: #fff;
+  padding: 20px 50px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  animation: fadeInUp 1.5s ease-out;
+}
+
+.hero .cta-button:hover {
+  background-color: #F1C40F;
+  transform: scale(1.1);
+}
+
+/* Animation Keyframes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* About Section */
+.about {
+  background-color: #1F2937;
+  color: #fff;
+}
+
+.about h2 {
+  font-size: 3rem;
+  margin-bottom: 30px;
+  color: #F39C12;
+}
+
+.about p {
+  font-size: 1.2rem;
+  color: #A3B3C2;
+  margin-bottom: 50px;
+  line-height: 1.7;
+}
+
+.about .cta-button {
+  background-color: #27AE60; /* Green button for secondary CTA */
+}
+
+.about .cta-button:hover {
+  background-color: #2ECC71;
+}
+
+/* Footer */
+footer {
+  background-color: #1F2937;
+  color: #A3B3C2;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+footer p {
+  font-size: 1rem;
+  opacity: 0.8;
+}
+
+footer a {
+  color: #F39C12;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+footer a:hover {
+  color: #F1C40F;
+}
+
+/* Hover Effects for Sections */
+section:hover {
+  transform: scale(1.02);
+  transition: all 0.3s ease-in-out;
+}

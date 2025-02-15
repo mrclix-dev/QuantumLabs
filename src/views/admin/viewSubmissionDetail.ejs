@@ -1,0 +1,51 @@
+<!-- admin/viewSubmissionDetail.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>View Submission - <%= submission.applicantName %></title>
+  <link rel="stylesheet" href="/assets/css/admin.css">
+</head>
+<body>
+  <header>
+    <h1>Admin Panel</h1>
+    <nav>
+      <a href="/admin/applications">Applications</a>
+      <a href="/admin/applications/<%= application._id %>/submissions">Back to Submissions</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Submission Details for <%= submission.applicantName %></h2>
+
+    <form>
+      <div class="submission-detail">
+        <h3>Applicant Name:</h3>
+        <p><%= submission.applicantName %></p>
+      </div>
+
+      <h1>Details of Submission</h1>
+      <p><strong>Applicant Name:</strong> <%= submission.applicantName %></p>
+      <p><strong>Submitted At:</strong> <%= submission.submittedAt.toLocaleString() %></p>
+      <h3>Responses</h3>
+      <ul>
+        <% application.questions.forEach((question, index) => { %>
+          <li><strong><%= question.question %>:</strong> <%= submission.responses[index] %></li>
+        <% }) %>
+      </ul>
+
+      <div class="submission-detail">
+        <label for="status">Status:</label>
+        <select id="status" name="status">
+          <option value="pending" <%= submission.status === 'pending' ? 'selected' : '' %>>Pending</option>
+          <option value="approved" <%= submission.status === 'approved' ? 'selected' : '' %>>Approved</option>
+          <option value="rejected" <%= submission.status === 'rejected' ? 'selected' : '' %>>Rejected</option>
+        </select>
+      </div>
+
+      <button type="submit" class="submit-btn">Save Changes</button>
+    </form>
+  </main>
+</body>
+</html>

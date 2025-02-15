@@ -1,0 +1,50 @@
+<!-- admin/viewSubmissions.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>View Submissions - <%= application.name %></title>
+  <link rel="stylesheet" href="/assets/css/admin.css">
+</head>
+<body>
+  <header>
+    <h1>Admin Panel</h1>
+    <nav>
+      <a href="/admin/applications">Applications</a>
+      <a href="/admin/applications/new">New Application</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Submissions for <%= application.name %></h2>
+
+    <% if (application.submissions.length > 0) { %>
+      <table>
+        <thead>
+            <tr>
+              <th>Applicant Name</th>
+              <th>Submitted At</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% application.submissions.forEach(submission => { %>
+              <tr>
+                <td><%= submission.applicantName %></td>
+                <td><%= submission.submittedAt.toLocaleString() %></td>
+                <td>
+                  <a href="/admin/applications/<%= application._id %>/submissions/<%= submission._id %>">View Submission</a>
+                </td>
+              </tr>
+            <% }) %>
+          </tbody>
+      </table>
+    <% } else { %>
+      <p>No submissions yet.</p>
+    <% } %>
+
+    <a href="/admin/applications" class="back-btn">Back to Applications</a>
+  </main>
+</body>
+</html>

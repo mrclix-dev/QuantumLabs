@@ -1,0 +1,52 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #1F2937;
+    color: #fff;
+  }
+  
+  .coming-soon-container {
+    text-align: center;
+  }
+  
+  .content h1 {
+    font-size: 3rem;
+    color: #F39C12;
+    margin-bottom: 20px;
+  }
+  
+  .content p {
+    font-size: 1.2rem;
+    color: #A3B3C2;
+    margin-bottom: 30px;
+  }
+  
+  .timer {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+  }
+  
+  .timer span {
+    font-weight: bold;
+    color: #F39C12;
+  }
+  
+  .cta-button {
+    text-decoration: none;
+    background-color: #F39C12;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .cta-button:hover {
+    background-color: #d98c10;
+  }
+  

@@ -1,0 +1,109 @@
+/* General Form Style */
+.application-form-container {
+    width: 80%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    text-align: center;
+    color: #333;
+    font-size: 2rem;
+  }
+  
+  .description {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    color: #555;
+  }
+  
+  /* Form Fields */
+  .form-field {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #333;
+  }
+  
+  input[type="text"],
+  textarea,
+  input[type="radio"],
+  input[type="checkbox"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  
+  textarea {
+    height: 100px;
+    resize: vertical;
+  }
+  
+  input[type="radio"],
+  input[type="checkbox"] {
+    width: auto;
+    margin-right: 10px;
+  }
+  
+  /* Submit Button */
+  button.submit-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    cursor: pointer;
+  }
+  
+  button.submit-button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Success Message */
+  .success-message {
+    color: #28a745;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+  
+  /* Question Containers */
+  .question-container {
+    background-color: #fff;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    font-size: 1.3rem;
+    color: #333;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .application-form-container {
+      width: 95%;
+    }
+  
+    .form-field {
+      margin-bottom: 15px;
+    }
+  }
+  

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create New Application</title>
+  <link rel="stylesheet" href="/assets/css/admincreate.css">
+</head>
+<body>
+
+    <h1>Create New Application</h1>
+  
+    <form action="/admin/applications" method="POST">
+      <div>
+        <label for="name">Application Name</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+  
+      <div>
+        <label for="description">Description</label>
+        <textarea id="description" name="description" required></textarea>
+      </div>
+  
+      <div>
+        <label for="status">Status</label>
+        <select id="status" name="status">
+          <option value="open">Open</option>
+          <option value="closed">Closed</option>
+        </select>
+      </div>
+  
+      <!-- Dynamic Question Creation -->
+      <div id="questions">
+        <h3>Questions</h3>
+        <div class="question">
+          <label for="type">Question Type</label>
+          <select class="question-type" name="questions[0][type]" onchange="toggleOptions(0)">
+            <option value="short">Short Answer</option>
+            <option value="paragraph">Paragraph Answer</option>
+            <option value="single-choice">Single Choice</option>
+            <option value="multiple-choice">Multiple Choice</option>
+          </select>
+          
+          <label for="question">Question</label>
+          <input type="text" name="questions[0][question]" required>
+  
+          <div class="options-container" id="options-container-0">
+            <label for="options">Options (comma-separated)</label>
+            <input type="text" name="questions[0][options]" placeholder="Option 1, Option 2, etc.">
+          </div>
+        </div>
+      </div>
+  
+      <button type="button" onclick="addQuestion()">Add Another Question</button>
+      <button type="submit">Create Application</button>
+    </form>
+  
+    <script>
+      let questionIndex = 1;
+  
+      function toggleOptions(index) {
+        const type = document.querySelector(`.question-type[name="questions[${index}][type]"]`).value;
+        const optionsContainer = document.getElementById(`options-container-${index}`);
+        if (type === 'single-choice' || type === 'multiple-choice') {
+          optionsContainer.style.display = 'block';
+        } else {
+          optionsContainer.style.display = 'none';
+        }
+      }
+  
+      function addQuestion() {
+        const questionsContainer = document.getElementById('questions');
+        const newQuestion = document.createElement('div');
+        newQuestion.classList.add('question');
+        newQuestion.innerHTML = `
+          <label for="type">Question Type</label>
+          <select class="question-type" name="questions[${questionIndex}][type]" onchange="toggleOptions(${questionIndex})">
+            <option value="short">Short Answer</option>
+            <option value="paragraph">Paragraph Answer</option>
+            <option value="single-choice">Single Choice</option>
+            <option value="multiple-choice">Multiple Choice</option>
+          </select>
+  
+          <label for="question">Question</label>
+          <input type="text" name="questions[${questionIndex}][question]" required>
+  
+          <div class="options-container" id="options-container-${questionIndex}">
+            <label for="options">Options (comma-separated)</label>
+            <input type="text" name="questions[${questionIndex}][options]" placeholder="Option 1, Option 2, etc.">
+          </div>
+        `;
+        questionsContainer.appendChild(newQuestion);
+        questionIndex++;
+      }
+  
+      // Automatically show or hide options based on the selected question type
+      toggleOptions(0);
+    </script>
+  </body>
+  </html>
